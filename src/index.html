@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Recording App</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <script defer src="./render.js"></script>
+    <style>
+      body,html {
+        background: linear-gradient(135deg, #6e7dff, #f8a0a8);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      #selectedScreen {
+        margin: 1rem 0;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .cancel-btn{
+        padding:10px; 
+        border:1px solid black;
+        border-radius:100px; 
+        position:fixed; 
+        top:10px; right:10px; 
+        background:#fff;
+        cursor:pointer;
+        transition: .3s;
+    }
+    .cancel-btn:hover{
+        border: 1px solid rgb(247, 50, 50);
+        box-shadow: 2px 3px 0px rgb(247, 50, 50);
+    }
+    .cancel-btn:active{
+        scale: 0.8  ;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="content-container">
+      <h1 class="title is-3">Video Recording App</h1>
+      <p class="subtitle is-5 has-text-light">Welcome to your Electron application</p>
+      
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <video class="video is-fullwidth" src="" controls></video>
+        </div>
+      </div>
+      <div >
+        <div id="selectedScreen">No screen selected </div>
+        <span>⭕</span>      
+      </div>
+      <div class="buttons is-centered">
+        <button id="videoSelectBtn" class="button is-info is-light is-medium">
+          Choose a Screen
+        </button>
+        <button id="startBtn" class="button is-primary is-light is-medium" disabled>Start ▶️</button>
+        <button id="stopBtn" class="button is-warning is-light is-medium" disabled>Stop ⏹️</button>
+      </div>
+    </div>
+    <button class="cancel-btn" id="exit-window">
+    
+      ❌
+  
+  </button>
+  </body>
+</html>
